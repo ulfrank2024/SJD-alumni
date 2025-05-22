@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sondage des anciens étudiants</title>
+  <link rel="stylesheet" href="/frontend/assest/css/formulair.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+<body>
+    <div class="container">
+      <header class="header">
+        <img src="/frontend/assest/image/logo.png" alt="Logo Université" class="logo" />
+        <h1>Sondage des anciens étudiants</h1>
+        <p class="slogan">Partagez votre expérience pour aider la prochaine génération !</p>
+      </header>
+  
+      <p class="note-confidentialite">
+        🔒 <strong>Ce formulaire est entièrement anonyme.</strong><br />
+        Vos informations personnelles ne seront pas communiquées à l’administration.
+      </p>
+      <form id="alumniForm" method="POST">
+        <!-- Titre -->
+        <p class="form-title">
+          <strong>
+            À l'occasion des 15 ans de la Catho SJD, l'association des anciens étudiants <em>SJDALUMNI</em> organise un questionnaire dans le but d'améliorer l'expérience de l'enseignement pendant le cursus universitaire.
+          </strong>
+        </p>
+      
+        <!-- Informations générales -->
+        <fieldset>
+          <legend>Informations générales</legend>
+      
+          <input type="text" name="name" placeholder="Nom complet (facultatif)" required/>
+          <input type="email" name="email" placeholder="Adresse e-mail (facultatif)" required/>
+          <input type="text" name="program" placeholder="Programme d'études suivi" required />
+          <input type="text" name="field" placeholder="Filière (ex : Informatique, Droit...)" required />
+          <input type="text" name="promotionYear" placeholder="Année de promotion (ex : 2022)" required />
+          <input type="text" name="residenceCountry" placeholder="Pays de résidence actuel" required />
+          <input type="text" name="currentJob" placeholder="Profession actuelle" required />
+          <input type="text" name="currentCompany" placeholder="Entreprise actuelle" required />
+        </fieldset>
+      
+        <!-- Expérience universitaire -->
+        <fieldset>
+          <legend>Votre expérience à l’université</legend>
+      
+          <label>Comment évaluez-vous la qualité des enseignements ?</label>
+          <select name="teachingQuality" required>
+            <option value="">Sélectionnez</option>
+            <option value="excellent">Excellente</option>
+            <option value="good">Bonne</option>
+            <option value="average">Moyenne</option>
+            <option value="poor">Insuffisante</option>
+          </select>
+      
+          <label>Les compétences acquises vous ont-elles été utiles dans votre vie professionnelle ?</label>
+          <select name="skillsUsefulness" required>
+            <option value="">Sélectionnez</option>
+            <option value="yes">Oui</option>
+            <option value="partially">Partiellement</option>
+            <option value="no">Non</option>
+          </select>
+      
+          <label>Recommanderiez-vous votre formation à d’autres étudiants ?</label>
+          <select name="recommend" required>
+            <option value="">Sélectionnez</option>
+            <option value="yes">Oui</option>
+            <option value="no">Non</option>
+          </select>
+        </fieldset>
+      
+        <!-- Témoignage -->
+        <fieldset>
+          <legend>Votre témoignage</legend>
+          <label>Racontez-nous un souvenir marquant ou un message pour la communauté SJD</label>
+          <textarea name="testimonial" rows="4" required></textarea>
+        </fieldset>
+      
+        <!-- Formations proposées -->
+        <fieldset>
+          <legend>Implication dans la formation</legend>
+          <label>Souhaitez-vous offrir des cours ou formations ?</label>
+          <select name="willingToTeach" required>
+            <option value="">Sélectionnez</option>
+            <option value="yes">Oui</option>
+            <option value="maybe">Peut-être</option>
+            <option value="no">Non</option>
+          </select>
+      
+          <label>Si oui, dans quel(s) domaine(s) ?</label>
+          <input type="text" name="teachingFields" placeholder="Ex : leadership, droit fiscal, informatique..." />
+        </fieldset>
+      
+        <!-- Partenariats -->
+        <fieldset>
+          <legend>Proposition de partenariats</legend>
+          <label>Avez-vous des propositions de partenariat avec SJD ?</label>
+          <textarea name="partnershipSuggestions" rows="3" required></textarea>
+        </fieldset>
+      
+        <!-- Reconnaissance à l'étranger -->
+        <fieldset>
+          <legend>Reconnaissance à l'international</legend>
+          <label>Avez-vous rencontré des difficultés pour faire reconnaître votre diplôme à l’étranger ?</label>
+          <textarea name="recognitionIssues" rows="3" required></textarea>
+        </fieldset>
+      
+        <!-- Prix et distinctions -->
+        <fieldset>
+          <legend>Prix & Distinctions</legend>
+      
+          <label>Souhaitez-vous proposer un prix à un membre de l’administration ?</label>
+          <textarea name="adminAwardSuggestion" rows="3" placeholder="Nom de la personne, justification..." required></textarea>
+      
+          <label>Quels prix souhaiteriez-vous voir l’administration attribuer à d’anciens étudiants ?</label>
+          <textarea name="studentAwardSuggestions" rows="3" placeholder="Ex : Prix d’excellence, Prix d’impact, etc." required></textarea>
+        </fieldset>
+      
+        <!-- Commentaires -->
+        <fieldset>
+          <legend>Commentaires et suggestions</legend>
+      
+          <label>Quels sont, selon vous, les points forts de la formation ?</label>
+          <textarea name="strengths" rows="4" required></textarea>
+      
+          <label>Quelles améliorations suggérez-vous ?</label>
+          <textarea name="improvements" rows="4" required></textarea>
+        </fieldset>
+      
+        <button type="submit">Envoyer mon avis</button>
+      </form>      
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
