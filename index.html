@@ -25,11 +25,13 @@
         <!-- Titre -->
         <p class="form-title">
           <strong>
-            À l'occasion des 15 ans de la Catho SJD, l'association des anciens étudiants <em>SJDALUMNI</em> organise un questionnaire dans le but d'améliorer l'expérience de l'enseignement pendant le cursus universitaire.
+            Dans le cadre des 15 ans de SJD, ce sondage a pour but de recueillir l’avis, les suggestions et les propositions concrètes des anciens étudiants. Merci de répondre avec sincérité afin de renforcer les liens entre les alumnis et l’institut, et contribuer à l’évolution de notre communauté.
           </strong>
         </p>
       
-        <!-- Informations générales -->
+        <form id="alumniForm" method="POST">
+
+                 <!-- Informations générales -->
         <fieldset>
           <legend>Informations générales</legend>
       
@@ -37,103 +39,155 @@
           <input type="email" name="email" placeholder="Adresse e-mail" required/>
           <input type="text" name="program" placeholder="Programme d'études suivi" required />
           <input type="text" name="field" placeholder="Filière (ex : Informatique, Droit...)" required />
-          <input type="text" name="promotionYear" placeholder="Année de promotion (ex : 2022)" required />
+          <input type="text" name="promotionYear" placeholder=" Quelle année avez-vous obtenu votre diplôme à SJD? (ex : 2022)" required />
           <input type="text" name="residenceCountry" placeholder="Pays de résidence actuel" required />
           <input type="text" name="currentJob" placeholder="Profession actuelle" required />
           <input type="text" name="currentCompany" placeholder="Entreprise actuelle" required />
         </fieldset>
-      
-        <!-- Expérience universitaire -->
-        <fieldset>
-          <legend>Votre expérience à l’université</legend>
-      
-          <label>Comment évaluez-vous la qualité des enseignements ?</label>
-          <select name="teachingQuality" required>
-            <option value="">Sélectionnez</option>
-            <option value="excellent">Excellente</option>
-            <option value="good">Bonne</option>
-            <option value="average">Moyenne</option>
-            <option value="poor">Insuffisante</option>
-          </select>
-      
-          <label>Les compétences acquises vous ont-elles été utiles dans votre vie professionnelle ?</label>
-          <select name="skillsUsefulness" required>
-            <option value="">Sélectionnez</option>
-            <option value="yes">Oui</option>
-            <option value="partially">Partiellement</option>
-            <option value="no">Non</option>
-          </select>
-      
-          <label>Recommanderiez-vous votre formation à d’autres étudiants ?</label>
-          <select name="recommend" required>
-            <option value="">Sélectionnez</option>
-            <option value="yes">Oui</option>
-            <option value="no">Non</option>
-          </select>
-        </fieldset>
-      
-        <!-- Témoignage -->
-        <fieldset>
-          <legend>Votre témoignage</legend>
-          <label>Racontez-nous un souvenir marquant ou un message pour la communauté SJD</label>
-          <textarea name="testimonial" rows="4" required></textarea>
-        </fieldset>
-      
-        <!-- Formations proposées -->
-        <fieldset>
-          <legend>Implication dans la formation</legend>
-          <label>Souhaitez-vous offrir des cours ou formations ?</label>
-          <select name="willingToTeach" required>
-            <option value="">Sélectionnez</option>
-            <option value="yes">Oui</option>
-            <option value="maybe">Peut-être</option>
-            <option value="no">Non</option>
-          </select>
-      
-          <label>Si oui, dans quel(s) domaine(s) ?</label>
-          <input type="text" name="teachingFields" placeholder="Ex : leadership, droit fiscal, informatique..." />
-        </fieldset>
-      
-        <!-- Partenariats -->
-        <fieldset>
-          <legend>Proposition de partenariats</legend>
-          <label>Avez-vous des propositions de partenariat avec SJD ?</label>
-          <textarea name="partnershipSuggestions" rows="3" required></textarea>
-        </fieldset>
-      
-        <!-- Reconnaissance à l'étranger -->
-        <fieldset>
-          <legend>Reconnaissance à l'international</legend>
-          <label>Avez-vous rencontré des difficultés pour faire reconnaître votre diplôme à l’étranger ?</label>
-          <textarea name="recognitionIssues" rows="3" required></textarea>
-        </fieldset>
-      
-        <!-- Prix et distinctions -->
-        <fieldset>
-          <legend>Prix & Distinctions</legend>
-      
-          <label>Souhaitez-vous proposer un prix à un membre de l’administration ?</label>
-          <textarea name="adminAwardSuggestion" rows="3" placeholder="Nom de la personne, justification..." required></textarea>
-      
-          <label>Quels prix souhaiteriez-vous voir l’administration attribuer à d’anciens étudiants ?</label>
-          <textarea name="studentAwardSuggestions" rows="3" placeholder="Ex : Prix d’excellence, Prix d’impact, etc." required></textarea>
-        </fieldset>
-      
-        <!-- Commentaires -->
-        <fieldset>
-          <legend>Commentaires et suggestions</legend>
-      
-          <label>Quels sont, selon vous, les points forts de la formation ?</label>
-          <textarea name="strengths" rows="4" required></textarea>
-      
-          <label>Quelles améliorations suggérez-vous ?</label>
-          <textarea name="improvements" rows="4" required></textarea>
-        </fieldset>
-      
-        <button type="submit">Envoyer mon avis</button>
-      </form>      
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+    
+          <!-- 1. Expérience académique à SJD -->
+          <fieldset>
+            <legend>1. Expérience académique à SJD</legend>
+    
+            <label>1.1 Comment évaluez-vous la qualité générale des enseignements reçus à SJD ?</label>
+            <select name="teachingQuality" required>
+              <option value="">Sélectionnez</option>
+              <option value="excellente">Excellente</option>
+              <option value="bonne">Bonne</option>
+              <option value="moyenne">Moyenne</option>
+              <option value="faible">Faible</option>
+            </select>
+    
+            <label>1.2 Les compétences acquises à SJD vous ont-elles été utiles dans votre parcours professionnel ?</label>
+            <select name="skillsUsefulness" required>
+              <option value="">Sélectionnez</option>
+              <option value="significative">Oui, de manière significative</option>
+              <option value="partielle">Oui, partiellement</option>
+              <option value="peu">Peu ou pas du tout</option>
+              <option value="non-concerne">Non concerné(e)</option>
+            </select>
+    
+            <label>1.3 Recommanderiez-vous la formation de SJD à d’autres étudiants ?</label>
+            <select name="recommend" required>
+              <option value="">Sélectionnez</option>
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+              <option value="peut-etre">Peut-être</option>
+            </select>
+          </fieldset>
+    
+          <!-- 2. Témoignage personnel -->
+          <fieldset>
+            <legend>2. Témoignage personnel</legend>
+            <label>2.1 Partagez un souvenir marquant de votre passage à SJD ou un message à la communauté :</label>
+            <textarea name="testimonial" rows="4" required></textarea>
+          </fieldset>
+    
+          <!-- 3. Implication dans la formation -->
+          <fieldset>
+            <legend>3. Implication dans la formation</legend>
+            <label>3.1 Seriez-vous disposé(e) à offrir des cours, séminaires ou formations à SJD ?</label>
+            <select name="willingToTeach" required>
+              <option value="">Sélectionnez</option>
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+              <option value="peut-etre">Peut-être</option>
+            </select>
+    
+            <label>3.2 Si oui, dans quel(s) domaine(s) ou sur quel(s) thème(s) ?</label>
+            <textarea name="teachingFields" rows="3"></textarea>
+          </fieldset>
+    
+          <!-- 4. Propositions de partenariats -->
+          <fieldset>
+            <legend>4. Propositions de partenariats</legend>
+            <label >4.1 Avez-vous des idées ou opportunités de partenariat à proposer à SJD ?</label>
+            <textarea name="partnershipSuggestions" rows="3" placeholder="entreprises, institutions, ONG, etc." required></textarea>
+    
+            <label>4.2 Seriez-vous prêt(e) à faciliter ou accompagner la mise en œuvre d’un partenariat ?</label>
+            <select name="willingToSupportPartnership" required>
+              <option value="">Sélectionnez</option>
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+              <option value="a-discuter">À discuter</option>
+            </select>
+          </fieldset>
+    
+          <!-- 5. Reconnaissance du diplôme à l’international -->
+          <fieldset>
+            <legend>5. Reconnaissance du diplôme à l’international</legend>
+    
+            <label>5.1 Êtes-vous actuellement à l’étranger ?</label>
+            <select name="abroad" required>
+              <option value="">Sélectionnez</option>
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+            </select>
+    
+            <label>5.2 Avez-vous rencontré des difficultés pour faire certifier votre diplôme/attestation ?</label>
+            <select name="certificationIssue" required>
+              <option value="">Sélectionnez</option>
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+              <option value="non-concerne">Non concerné(e)</option>
+            </select>
+    
+            <label>5.3 Avez-vous des suggestions pour améliorer les certifications de diplômes/attestations ?</label>
+            <textarea name="certificationSuggestion" rows="3"></textarea>
+          </fieldset>
+    
+          <!-- 6. Prix & Distinctions – Membre de l’administration -->
+          <fieldset>
+            <legend>6. Prix & Distinctions – Membre de l’administration</legend>
+    
+            <label>6.1 Souhaitez-vous proposer un prix à un membre de l’administration qui a marqué positivement votre parcours à SJD ?</label>
+            <select name="awardAdmin" required>
+              <option value="">Sélectionnez</option>
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+            </select>
+    
+            <label>6.2 Si oui, précisez le nom, la fonction et la raison :</label>
+            <textarea name="adminAwardDetails" rows="3"></textarea>
+    
+            <label>6.3 Selon vous, quelle forme devrait prendre ce prix ?</label>
+            <textarea name="adminAwardType" rows="2" placeholder="Plaque ou trophée, Lettre de reconnaissance officielle,Publication sur les réseaux officiels autre..."></textarea>
+          </fieldset>
+    
+          <!-- 7. Prix & Distinctions – Anciens étudiants -->
+          <fieldset>
+            <legend>7. Prix & Distinctions – Anciens étudiants</legend>
+    
+            <label>7.1 Avez-vous des propositions de prix à décerner à des anciens étudiants de SJD ?</label>
+            <select name="awardAlumni" required>
+              <option value="">Sélectionnez</option>
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+            </select>
+    
+            <label>7.2 Si oui, précisez le nom, le parcours et le type de prix :</label>
+            <textarea name="alumniAwardDetails" rows="3"></textarea>
+    
+            <label>7.3 Quelle forme devrait prendre cette distinction selon vous ?</label>
+            <textarea name="alumniAwardType" rows="2" placeholder="Prix d’honneur, mise à l’honneur, portrait inspirant, autre..."></textarea>
+          </fieldset>
+    
+          <!-- 8. Suggestions générales -->
+          <fieldset>
+            <legend>8. Suggestions générales</legend>
+    
+            <label>8.1 Quels sont, selon vous, les points forts actuels de la formation à SJD ?</label>
+            <textarea name="strengths" rows="3" required></textarea>
+    
+            <label>8.2 Quelles améliorations proposez-vous pour renforcer la qualité de la formation ?</label>
+            <textarea name="improvements" rows="3" required></textarea>
+          </fieldset>
+    
+          <button type="submit">Envoyer mon avis</button>
+        </form>
+      </div>
+    
+      <script src="script.js"></script>
+    </body>
+    </html>
+    
