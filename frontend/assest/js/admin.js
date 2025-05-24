@@ -104,10 +104,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 "Suggestions de certification": entry.certification_suggestion,
                 "Prix admin": entry.award_admin,
                 "Détails prix admin": entry.admin_award_details,
-                "Type de prix admin": entry.admin_award_type,
                 "Prix alumni": entry.award_alumni,
                 "Détails prix alumni": entry.alumni_award_details,
-                "Type de prix alumni": entry.alumni_award_type,
                 "Forces de la formation": entry.strengths,
                 "Axes d’amélioration": entry.improvements,
             };
