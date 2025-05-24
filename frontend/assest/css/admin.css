@@ -1,52 +1,20 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 2rem;
-    background-color: #f4f4f4;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .container {
-    max-width: 95%;
-    margin: auto;
-    overflow-x: auto;
-  }
-  
-  #loading {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    background: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  
-  th, td {
+.response-card {
     border: 1px solid #ccc;
-    padding: 0.5rem;
-    text-align: left;
-    font-size: 0.9rem;
-  }
-  
-  th {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  tr:nth-child(even) {
+    border-radius: 10px;
+    padding: 1.5em;
+    margin-bottom: 2em;
     background-color: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   }
   
-  .hidden {
-    display: none;
+  .response-card h2 {
+    margin-top: 1.2em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.4em;
+    color: #333;
+  }
+  
+  .response-card p {
+    margin: 0.4em 0;
   }
   
