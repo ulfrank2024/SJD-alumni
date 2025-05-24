@@ -64,3 +64,9 @@ body {
 .response-table tr:nth-child(even) td {
     background-color: #f1f5f9;
 }
+  /* Responsive */
+  @media screen and (max-width: 600px) {
+    .response-table {
+        display: none;
+    }
+  }
