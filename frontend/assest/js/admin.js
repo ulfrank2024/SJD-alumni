@@ -75,46 +75,53 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-   data.forEach((entry) => {
-       const responses = {
-           Email: entry.email,
-           Programme: entry.program,
-           Domaine: entry.field,
-           "Année de promotion": entry.promotion_year,
-           "Pays de résidence": entry.residence_country,
-           "Emploi actuel": entry.current_job,
-           "Entreprise actuelle": entry.current_company,
-           "Qualité de l’enseignement": entry.teaching_quality,
-           "Utilité des compétences": entry.skills_usefulness,
-           "Recommander la formation": entry.recommend,
-           Témoignage: entry.testimonial,
-           "Prêt à enseigner": entry.willing_to_teach,
-           "Domaines enseignables": entry.teaching_fields,
-           "Suggestions de partenariat": entry.partnership_suggestions,
-           "Soutien aux partenariats": entry.willing_to_support_partnership,
-           "Études à l’étranger": entry.abroad,
-           "Problèmes de certificat": entry.certification_issue,
-           "Suggestions de certification": entry.certification_suggestion,
-           "Prix admin": entry.award_admin,
-           "Détails prix admin": entry.admin_award_details,
-           "Type de prix admin": entry.admin_award_type,
-           "Prix alumni": entry.award_alumni,
-           "Détails prix alumni": entry.alumni_award_details,
-           "Type de prix alumni": entry.alumni_award_type,
-           "Forces de la formation": entry.strengths,
-           "Axes d’amélioration": entry.improvements,
-       };
+        data.forEach((entry) => {
+            const responses = {
+                "Email": entry.email,
+                "Programme": entry.program,
+                "Domaine": entry.field,
+                "Année de promotion": entry.promotion_year,
+                "Pays de résidence": entry.residence_country,
+                "Emploi actuel": entry.current_job,
+                "Entreprise actuelle": entry.current_company,
+                "Qualité de l’enseignement": entry.teaching_quality,
+                "Utilité des compétences": entry.skills_usefulness,
+                "Recommander la formation": entry.recommend,
+                "Témoignage": entry.testimonial,
+                "Activités marquantes": entry.activite,
+                "Conseil aux nouveaux étudiants": entry.conseil,
+                "Implication en agriculture": entry.agriculture,
+                "Tuteur ou tutoré": entry.tutore,
+                "École fréquentée": entry.ecole,
+                "Centre de formation": entry.centre,
+                "Prêt à enseigner": entry.willing_to_teach,
+                "Domaines enseignables": entry.teaching_fields,
+                "Suggestions de partenariat": entry.partnership_suggestions,
+                "Soutien aux partenariats":
+                    entry.willing_to_support_partnership,
+                "Études à l’étranger": entry.abroad,
+                "Problèmes de certificat": entry.certification_issue,
+                "Suggestions de certification": entry.certification_suggestion,
+                "Prix admin": entry.award_admin,
+                "Détails prix admin": entry.admin_award_details,
+                "Type de prix admin": entry.admin_award_type,
+                "Prix alumni": entry.award_alumni,
+                "Détails prix alumni": entry.alumni_award_details,
+                "Type de prix alumni": entry.alumni_award_type,
+                "Forces de la formation": entry.strengths,
+                "Axes d’amélioration": entry.improvements,
+            };
 
-       const date = entry.createdAt || Date.now();
-       const fullName = `👤 ${entry.name}`;
+            const date = entry.createdAt || Date.now();
+            const fullName = `👤 ${entry.name}`;
 
-       // 💻 Desktop version
-       admin.appendChild(createUserCard(fullName, date, responses));
+            // 💻 Desktop version
+            admin.appendChild(createUserCard(fullName, date, responses));
 
-       // 📱 Mobile version
-       mobileContainer.appendChild(createMobileCard(fullName, date));
-   });
-
+            // 📱 Mobile version
+            mobileContainer.appendChild(createMobileCard(fullName, date));
+        });
+        
 
         loading.remove();
     } catch (err) {
