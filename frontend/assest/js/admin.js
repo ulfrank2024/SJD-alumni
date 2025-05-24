@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!response.ok) throw new Error("Erreur réseau");
 
         const data = await response.json();
+        console.log(data[0]);
 
         if (data.length === 0) {
             loading.textContent = "Aucune réponse enregistrée.";
