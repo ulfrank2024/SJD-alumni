@@ -3,39 +3,36 @@ document.addEventListener("DOMContentLoaded", async () => {
     const loading = document.getElementById("loading");
     const admin = document.getElementById("admin");
 
-    const createUnifiedTable = (headers, rows) => {
+    const createUserCard = (title, infoObject) => {
         const section = document.createElement("section");
-        section.classList.add("response-section");
+        section.classList.add("user-card");
 
+        // Titre avec le nom
         const h2 = document.createElement("h2");
-        h2.textContent = "📋 Résumé des réponses des alumni";
+        h2.textContent = title;
         section.appendChild(h2);
 
+        // Table avec les infos
         const table = document.createElement("table");
         table.classList.add("response-table");
 
-        const thead = document.createElement("thead");
-        const headerRow = document.createElement("tr");
-        headers.forEach((header) => {
-            const th = document.createElement("th");
-            th.textContent = header;
-            headerRow.appendChild(th);
-        });
-        thead.appendChild(headerRow);
-        table.appendChild(thead);
-
         const tbody = document.createElement("tbody");
-        rows.forEach((row) => {
+
+        Object.entries(infoObject).forEach(([key, value]) => {
             const tr = document.createElement("tr");
-            row.forEach((cell) => {
-                const td = document.createElement("td");
-                td.textContent = cell;
-                tr.appendChild(td);
-            });
+
+            const th = document.createElement("th");
+            th.textContent = key;
+
+            const td = document.createElement("td");
+            td.textContent = value;
+
+            tr.appendChild(th);
+            tr.appendChild(td);
             tbody.appendChild(tr);
         });
-        table.appendChild(tbody);
 
+        table.appendChild(tbody);
         section.appendChild(table);
         return section;
     };
@@ -51,70 +48,40 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        // En-têtes unifiés
-        const headers = [
-            "Nom",
-            "Email",
-            "Programme",
-            "Domaine",
-            "Année",
-            "Pays",
-            "Emploi",
-            "Entreprise",
-            "Enseignement",
-            "Utilité",
-            "Recommander",
-            "Témoignage",
-            "Prêt à enseigner",
-            "Domaines enseignables",
-            "Suggestions partenariat",
-            "Soutien partenariat",
-            "À l'étranger",
-            "Problèmes certificat",
-            "Suggestions certificat",
-            "Prix admin",
-            "Détails admin",
-            "Type admin",
-            "Prix alumni",
-            "Détails alumni",
-            "Type alumni",
-            "Forces",
-            "Améliorations",
-        ];
+        data.forEach((entry) => {
+            const responses = {
+                Email: entry.email,
+                Programme: entry.program,
+                Domaine: entry.field,
+                "Année de promotion": entry.promotion_year,
+                "Pays de résidence": entry.residence_country,
+                "Emploi actuel": entry.current_job,
+                "Entreprise actuelle": entry.current_company,
+                "Qualité de l’enseignement": entry.teaching_quality,
+                "Utilité des compétences": entry.skills_usefulness,
+                "Recommander la formation": entry.recommend,
+                Témoignage: entry.testimonial,
+                "Prêt à enseigner": entry.willing_to_teach,
+                "Domaines enseignables": entry.teaching_fields,
+                "Suggestions de partenariat": entry.partnership_suggestions,
+                "Soutien aux partenariats":
+                    entry.willing_to_support_partnership,
+                "Études à l’étranger": entry.abroad,
+                "Problèmes de certificat": entry.certification_issue,
+                "Suggestions de certification": entry.certification_suggestion,
+                "Prix admin": entry.award_admin,
+                "Détails prix admin": entry.admin_award_details,
+                "Type de prix admin": entry.admin_award_type,
+                "Prix alumni": entry.award_alumni,
+                "Détails prix alumni": entry.alumni_award_details,
+                "Type de prix alumni": entry.alumni_award_type,
+                "Forces de la formation": entry.strengths,
+                "Axes d’amélioration": entry.improvements,
+            };
 
-        // Lignes unifiées
-        const rows = data.map((entry) => [
-            entry.name,
-            entry.email,
-            entry.program,
-            entry.field,
-            entry.promotion_year,
-            entry.residence_country,
-            entry.current_job,
-            entry.current_company,
-            entry.teaching_quality,
-            entry.skills_usefulness,
-            entry.recommend,
-            entry.testimonial,
-            entry.willing_to_teach,
-            entry.teaching_fields,
-            entry.partnership_suggestions,
-            entry.willing_to_support_partnership,
-            entry.abroad,
-            entry.certification_issue,
-            entry.certification_suggestion,
-            entry.award_admin,
-            entry.admin_award_details,
-            entry.admin_award_type,
-            entry.award_alumni,
-            entry.alumni_award_details,
-            entry.alumni_award_type,
-            entry.strengths,
-            entry.improvements,
-        ]);
+            admin.appendChild(createUserCard(`👤 ${entry.name}`, responses));
+        });
 
-        // Création d'un tableau unique
-        admin.appendChild(createUnifiedTable(headers, rows));
         loading.remove();
     } catch (err) {
         loading.textContent = "Impossible de charger les données.";

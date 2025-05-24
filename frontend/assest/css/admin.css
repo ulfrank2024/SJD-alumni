@@ -1,24 +1,32 @@
-.response-card {
+.user-card {
+    margin-bottom: 30px;
+    padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 1.5em;
-    margin-bottom: 2em;
+    border-radius: 12px;
     background-color: #f9f9f9;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  }
-  
-  .response-card h2 {
-    margin-top: 1.2em;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 0.4em;
-    color: #333;
-  }
-  
-  .response-card p {
-    margin: 0.4em 0;
-  }
-  .response-section {
-    overflow-x: auto;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
 }
 
-  
+.user-card h2 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.response-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.response-table th,
+.response-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    vertical-align: top;
+}
+
+.response-table th {
+    width: 35%;
+    background-color: #f1f1f1;
+    text-align: left;
+}
