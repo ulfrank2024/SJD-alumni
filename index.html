@@ -41,11 +41,11 @@
         <input type="email" name="email" placeholder="Adresse e-mail" required />
         <input type="text" name="program" placeholder="Programme d'études suivi" required />
         <input type="text" name="field" placeholder="Filière (ex : Informatique, Droit...)" required />
-        <input type="text" name="promotionYear"
+        <input type="text" name="promotion_year"
           placeholder=" Quelle année avez-vous obtenu votre diplôme à SJD? (ex : 2022)" required />
-        <input type="text" name="residenceCountry" placeholder="Pays de résidence actuel" required />
-        <input type="text" name="currentJob" placeholder="Profession actuelle" required />
-        <input type="text" name="currentCompany" placeholder="Entreprise actuelle" required />
+        <input type="text" name="residence_country" placeholder="Pays de résidence actuel" required />
+        <input type="text" name="current_job" placeholder="Profession actuelle" required />
+        <input type="text" name="current_company" placeholder="Entreprise actuelle" required />
       </fieldset>
        <!-- 1. Témoignage personnel -->
        <fieldset>
@@ -79,7 +79,7 @@
         </label>
         <textarea name="centre" rows="3" required></textarea>
         <label>2.5 Comment évaluez-vous la qualité générale des enseignements reçus à SJD ?</label>
-        <select name="teachingQuality" required>
+        <select name="teaching_quality" required>
           <option value="">Sélectionnez</option>
           <option value="excellente">Excellente</option>
           <option value="bonne">Bonne</option>
@@ -88,7 +88,7 @@
         </select>
 
         <label>2.6 Les compétences acquises à SJD vous ont-elles été utiles dans votre parcours professionnel ?</label>
-        <select name="skillsUsefulness" required>
+        <select name="skills_usefulness" required>
           <option value="">Sélectionnez</option>
           <option value="significative">Oui, de manière significative</option>
           <option value="partielle">Oui, partiellement</option>
@@ -110,7 +110,7 @@
       <fieldset>
         <legend>3. Implication dans la formation</legend>
         <label>3.1 Seriez-vous disposé(e) à offrir des cours, séminaires ou formations à SJD ?</label>
-        <select name="willingToTeach" required>
+        <select name="willing_to_teach" required>
           <option value="">Sélectionnez</option>
           <option value="oui">Oui</option>
           <option value="non">Non</option>
@@ -118,18 +118,18 @@
         </select>
 
         <label>3.2 Si oui, dans quel(s) domaine(s) ou sur quel(s) thème(s) ?</label>
-        <textarea name="teachingFields" rows="3"></textarea>
+        <textarea name="teaching_fields" rows="3"></textarea>
       </fieldset>
 
       <!-- 4. Propositions de partenariats -->
       <fieldset>
         <legend>4. Propositions de partenariats</legend>
         <label>4.1 Avez-vous des idées ou opportunités de partenariat à proposer à SJD ?</label>
-        <textarea name="partnershipSuggestions" rows="3" placeholder="entreprises, institutions, ONG, etc."
+        <textarea name="partnership_suggestions" rows="3" placeholder="entreprises, institutions, ONG, etc."
           required></textarea>
 
         <label>4.2 Seriez-vous prêt(e) à faciliter ou accompagner la mise en œuvre d’un partenariat ?</label>
-        <select name="willingToSupportPartnership" required>
+        <select name="willing_to_support_partnership" required>
           <option value="">Sélectionnez</option>
           <option value="oui">Oui</option>
           <option value="non">Non</option>
@@ -149,7 +149,7 @@
         </select>
 
         <label>5.2 Avez-vous rencontré des difficultés pour faire certifier votre diplôme/attestation ?</label>
-        <select name="certificationIssue" required>
+        <select name="certification_issue" required>
           <option value="">Sélectionnez</option>
           <option value="oui">Oui</option>
           <option value="non">Non</option>
@@ -157,7 +157,7 @@
         </select>
 
         <label>5.3 Avez-vous des suggestions pour améliorer les certifications de diplômes/attestations ?</label>
-        <textarea name="certificationSuggestion" rows="3"></textarea>
+        <textarea name="certification_suggestion" rows="3"></textarea>
       </fieldset>
 
       <!-- 6. Prix & Distinctions – Membre de l’administration -->
@@ -166,14 +166,14 @@
 
         <label>6.1 Souhaitez-vous proposer un prix à un membre de l’administration qui a marqué positivement votre
           parcours à SJD ?</label>
-        <select name="awardAdmin" required>
+        <select name="award_admin" required>
           <option value="">Sélectionnez</option>
           <option value="oui">Oui</option>
           <option value="non">Non</option>
         </select>
 
         <label>6.2 Si oui, précisez le nom, la fonction et la raison :</label>
-        <textarea name="adminAwardDetails" rows="3"></textarea>
+        <textarea name="admin_award_details" rows="3"></textarea>
       </fieldset>
 
       <!-- 7. Prix & Distinctions – Anciens étudiants -->
@@ -181,14 +181,14 @@
         <legend>7. Prix & Distinctions – Anciens étudiants</legend>
 
         <label>7.1 Avez-vous des propositions de prix à décerner à des anciens étudiants de SJD ?</label>
-        <select name="awardAlumni" required>
+        <select name="award_alumni" required>
           <option value="">Sélectionnez</option>
           <option value="oui">Oui</option>
           <option value="non">Non</option>
         </select>
 
         <label>7.2 Si oui, précisez le nom, le parcours et le type de prix :</label>
-        <textarea name="alumniAwardDetails" rows="3"></textarea>
+        <textarea name="alumni_award_details" rows="3"></textarea>
       </fieldset>
 
       <!-- 9. Suggestions générales -->
@@ -196,13 +196,13 @@
         <legend>8. Vision UNEEP et formation en alternance à SJD</legend>
 
         <label>8.1 Comment bien opérationaliser la vision UNEEP (université numérique écologique entrepreneuriale et panafricaine) à SJD ?</label>
-        <textarea name="visionUneep" rows="3" required></textarea>
+        <textarea name="vision_uneep" rows="3" required></textarea>
 
         <label>8.2 Comment réussir l’implémentation d’une formation par alternance à SJD ?</label>
-        <textarea name="workStudy" rows="3" required></textarea>
+        <textarea name="work_study" rows="3" required></textarea>
 
         <label>8.3 Comment développer davantage la culture d’entreprise par un esprit d’entrepreneuriat à SJD ?</label>
-        <textarea name="entrepreneurshipCulture" rows="3" required></textarea>
+        <textarea name="entrepreneurship_culture" rows="3" required></textarea>
       </fieldset>
 
           <!-- 8. Suggestions générales -->

@@ -107,9 +107,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 "2.5 Que pensez-vous de la mise sur pieds du CREDIT (Centre de Recherche Entrepreneuriale pour le Développement Industriel et Technologique) à SJD ?":
                     entry.centre,
                 "2.5 Comment évaluez-vous la qualité générale des enseignements reçus à SJD ?":
-                    entry.teachingQuality,
+                    entry.teaching_quality,
                 "2.6 Les compétences acquises à SJD vous ont-elles été utiles dans votre parcours professionnel ?":
-                    entry.skillsUsefulness,
+                    entry.skills_usefulness,
                 "2.7 Recommanderiez-vous la formation de SJD à d’autres étudiants ?":
                     entry.recommend,
 
