@@ -7,17 +7,23 @@
   <link rel="stylesheet" href="/SJD-alumni/frontend/assest/css/admin.css" />
 </head>
 <body>
-  <div class="container" id="admin">
-    <h1>Résultats des formulaires</h1>
-    <div id="loading">Chargement...</div>
-    <div id="responsesContainer" >
-        <!-- les blocs seront insérés dynamiquement ici -->
-    </div>
-    <div id="mobileResponses" class="mobile-responses">
-        <!-- Version mobile simplifiée générée dynamiquement ici -->
-    </div>
-    
-  </div>
+    <div class="container">
+        <h1>Résultats des formulaires</h1>
+        <div id="loading">Chargement...</div>
+      
+        <!-- 💻 Desktop seulement -->
+        <div class="contenu">
+          <div id="admin">
+            <!-- les blocs desktop seront insérés ici -->
+          </div>
+        </div>
+      
+        <!-- 📱 Mobile seulement -->
+        <div id="mobileResponses" class="mobile-responses">
+          <!-- Version mobile simplifiée générée dynamiquement ici -->
+        </div>
+      </div>
+      
   <script src="/SJD-alumni/frontend/assest/js/admin.js"></script>
 </body>
 </html>
