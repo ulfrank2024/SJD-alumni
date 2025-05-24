@@ -1,32 +1,66 @@
+/* 🎨 Fond de page dynamique */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 30px;
+    background: linear-gradient(135deg, #f0f8ff, #e0eaff, #f8f9ff);
+    color: #2d2d2d;
+}
+
+/* 📦 Carte utilisateur */
 .user-card {
-    margin-bottom: 30px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    background-color: #f9f9f9;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+    padding: 25px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.user-card:hover {
+    transform: scale(1.01);
 }
 
 .user-card h2 {
-    margin-bottom: 10px;
-    font-size: 1.4rem;
-    color: #333;
+    font-size: 1.6rem;
+    margin: 10px 0 15px;
+    color: #1e3a8a;
 }
 
+.submission-date {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    color: #555;
+    font-style: italic;
+}
+
+/* 📊 Tableau des réponses */
 .response-table {
     width: 100%;
     border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.response-table th,
-.response-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    vertical-align: top;
-}
-
+/* 🌟 En-tête stylé */
 .response-table th {
-    width: 35%;
-    background-color: #f1f1f1;
+    background: linear-gradient(to right, #3b82f6, #6366f1);
+    color: #fff;
+    padding: 14px 18px;
     text-align: left;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* 🧾 Cellules */
+.response-table td {
+    background-color: #f9fafb;
+    color: #333;
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.response-table tr:nth-child(even) td {
+    background-color: #f1f5f9;
 }

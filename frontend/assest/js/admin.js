@@ -3,16 +3,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     const loading = document.getElementById("loading");
     const admin = document.getElementById("admin");
 
-    const createUserCard = (title, infoObject) => {
+    const createUserCard = (title, date, infoObject) => {
         const section = document.createElement("section");
         section.classList.add("user-card");
 
-        // Titre avec le nom
+        // Ligne de date
+        const dateP = document.createElement("p");
+        dateP.classList.add("submission-date");
+        dateP.textContent = `🕒 Soumis le : ${new Date(date).toLocaleString()}`;
+        section.appendChild(dateP);
+
+        // Titre
         const h2 = document.createElement("h2");
         h2.textContent = title;
         section.appendChild(h2);
 
-        // Table avec les infos
+        // Tableau
         const table = document.createElement("table");
         table.classList.add("response-table");
 
@@ -25,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             th.textContent = key;
 
             const td = document.createElement("td");
-            td.textContent = value;
+            td.textContent = value || "—";
 
             tr.appendChild(th);
             tr.appendChild(td);
@@ -79,7 +85,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                 "Axes d’amélioration": entry.improvements,
             };
 
-            admin.appendChild(createUserCard(`👤 ${entry.name}`, responses));
+            admin.appendChild(
+                createUserCard(
+                    `👤 ${entry.name}`,
+                    entry.createdAt || Date.now(),
+                    responses
+                )
+            );
         });
 
         loading.remove();
