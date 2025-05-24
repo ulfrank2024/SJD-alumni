@@ -77,63 +77,86 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         data.forEach((entry) => {
             const responses = {
-                // Informations générales
-                Email: entry.email,
-                Programme: entry.program,
-                Domaine: entry.field,
-                "Année de promotion": entry.promotion_year,
-                "Pays de résidence": entry.residence_country,
-                "Emploi actuel": entry.current_job,
-                "Entreprise actuelle": entry.current_company,
+                "Nom complet": entry.name,
+                "Adresse e-mail": entry.email,
+                "Programme d'études suivi": entry.program,
+                "Filière (ex : Informatique, Droit...)": entry.field,
+                "Quelle année avez-vous obtenu votre diplôme à SJD? (ex : 2022)":
+                    entry.promotionYear,
+                "Pays de résidence actuel": entry.residenceCountry,
+                "Profession actuelle": entry.currentJob,
+                "Entreprise actuelle": entry.currentCompany,
 
                 // 1. Témoignage personnel
-                Communication: entry.communication,
-                "Activités marquantes": entry.activite,
-                Témoignage: entry.testimonial,
+                "1.1 Est-ce que vous êtes toujours en communication avec SJD ?":
+                    entry.communication,
+                "1.2 Qu’est-ce que vous pensez de la communication de SJD sur ses activités?":
+                    entry.activite,
+                "1.3 Partagez un souvenir marquant de votre passage à SJD ou un message à la communauté :":
+                    entry.testimonial,
 
                 // 2. Expérience académique à SJD
-                "Conseil aux nouveaux étudiants": entry.conseil,
-                "Implication en agriculture": entry.agriculture,
-                "Tuteur ou tutoré": entry.tutore,
-                "École fréquentée": entry.ecole,
-                "Centre de formation": entry.centre,
-                "Qualité de l’enseignement": entry.teaching_quality,
-                "Utilité des compétences": entry.skills_usefulness,
-                "Recommander la formation": entry.recommend,
+                "2.1 Qu’est-ce que vous pensez du conseil de perfectionnement de SJD ?":
+                    entry.conseil,
+                "2.2 Quelles suggestions pouvez-vous faire dans le cadre de la création de l’école d’agriculture de SJD dès la rentrée prochaine ?":
+                    entry.agriculture,
+                "2.3 Qu’est-ce que vous pensez des projets tutorés de 4e année qui débouchent à l’incubation des entreprises ?":
+                    entry.tutore,
+                "2.4 Faites des recommandations aux différentes écoles (SJRS, SJMB, SJP, SJHS, SJLP) sur une filière de votre choix.":
+                    entry.ecole,
+                "2.5 Que pensez-vous de la mise sur pieds du CREDIT (Centre de Recherche Entrepreneuriale pour le Développement Industriel et Technologique) à SJD ?":
+                    entry.centre,
+                "2.5 Comment évaluez-vous la qualité générale des enseignements reçus à SJD ?":
+                    entry.teachingQuality,
+                "2.6 Les compétences acquises à SJD vous ont-elles été utiles dans votre parcours professionnel ?":
+                    entry.skillsUsefulness,
+                "2.7 Recommanderiez-vous la formation de SJD à d’autres étudiants ?":
+                    entry.recommend,
 
                 // 3. Implication dans la formation
-                "Prêt à enseigner": entry.willing_to_teach,
-                "Domaines enseignables": entry.teaching_fields,
+                "3.1 Seriez-vous disposé(e) à offrir des cours, séminaires ou formations à SJD ?":
+                    entry.willingToTeach,
+                "3.2 Si oui, dans quel(s) domaine(s) ou sur quel(s) thème(s) ?":
+                    entry.teachingFields,
 
                 // 4. Propositions de partenariats
-                "Suggestions de partenariat": entry.partnership_suggestions,
-                "Soutien aux partenariats":
-                    entry.willing_to_support_partnership,
+                "4.1 Avez-vous des idées ou opportunités de partenariat à proposer à SJD ?":
+                    entry.partnershipSuggestions,
+                "4.2 Seriez-vous prêt(e) à faciliter ou accompagner la mise en œuvre d’un partenariat ?":
+                    entry.willingToSupportPartnership,
 
                 // 5. Reconnaissance du diplôme à l’international
-                "Études à l’étranger": entry.abroad,
-                "Problèmes de certificat": entry.certification_issue,
-                "Suggestions de certification": entry.certification_suggestion,
+                "5.1 Êtes-vous actuellement à l’étranger ?": entry.abroad,
+                "5.2 Avez-vous rencontré des difficultés pour faire certifier votre diplôme/attestation ?":
+                    entry.certificationIssue,
+                "5.3 Avez-vous des suggestions pour améliorer les certifications de diplômes/attestations ?":
+                    entry.certificationSuggestion,
 
                 // 6. Prix & Distinctions – Membre de l’administration
-                "Prix admin": entry.award_admin,
-                "Détails prix admin": entry.admin_award_details,
+                "6.1 Souhaitez-vous proposer un prix à un membre de l’administration qui a marqué positivement votre parcours à SJD ?":
+                    entry.awardAdmin,
+                "6.2 Si oui, précisez le nom, la fonction et la raison :":
+                    entry.adminAwardDetails,
 
                 // 7. Prix & Distinctions – Anciens étudiants
-                "Prix alumni": entry.award_alumni,
-                "Détails prix alumni": entry.alumni_award_details,
+                "7.1 Avez-vous des propositions de prix à décerner à des anciens étudiants de SJD ?":
+                    entry.awardAlumni,
+                "7.2 Si oui, précisez le nom, le parcours et le type de prix :":
+                    entry.alumniAwardDetails,
 
-                // 8. Vision UNEEP et formation en alternance (supposée)
-                "Vision UNEEP": entry.vision_uneep,
-                "Travail-études": entry.work_study,
-                "Culture entrepreneuriale": entry.entrepreneurship_culture,
+                // 8. Vision UNEEP et formation en alternance à SJD (à compléter selon la suite du formulaire)
 
-                // Optionnel : champs manquants du formulaire HTML (si existants dans la suite)
-                "Type de prix admin": entry.admin_award_type,
-                "Type de prix alumni": entry.alumni_award_type,
-                "Forces de la formation": entry.strengths,
-                "Axes d’amélioration": entry.improvements,
+                "8.1 Comment bien opérationaliser la vision UNEEP (université numérique écologique entrepreneuriale et panafricaine) à SJD ?":
+                    entry.vision_uneep,
+                "8.2 Comment réussir l’implémentation d’une formation par alternance à SJD ?":
+                    entry.work_study,
+                "8.3 Comment développer davantage la culture d’entreprise par un esprit d’entrepreneuriat à SJD ?":entry.entrepreneurship_culture,
+                "9.1 Quels sont, selon vous, les points forts actuels de la formation à SJD ?":
+                    entry.strengths,
+                "9.2 Quelles améliorations proposez-vous pour renforcer la qualité de la formation ?":
+                    entry.improvements,
             };
+              
             
 
             const date = entry.createdAt || Date.now();
