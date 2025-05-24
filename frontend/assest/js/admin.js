@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const API_URL = window.env.API_URL + "/all";
+    const API_URL = window.env.API_URL + "/api/form/";
     const loading = document.getElementById("loading");
     const responsesContainer = document.createElement("div");
     responsesContainer.id = "responsesContainer";
