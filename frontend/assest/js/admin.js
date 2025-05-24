@@ -77,38 +77,64 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         data.forEach((entry) => {
             const responses = {
-                "Email": entry.email,
-                "Programme": entry.program,
-                "Domaine": entry.field,
+                // Informations générales
+                Email: entry.email,
+                Programme: entry.program,
+                Domaine: entry.field,
                 "Année de promotion": entry.promotion_year,
                 "Pays de résidence": entry.residence_country,
                 "Emploi actuel": entry.current_job,
                 "Entreprise actuelle": entry.current_company,
-                "Qualité de l’enseignement": entry.teaching_quality,
-                "Utilité des compétences": entry.skills_usefulness,
-                "Recommander la formation": entry.recommend,
-                "Témoignage": entry.testimonial,
+
+                // 1. Témoignage personnel
+                Communication: entry.communication,
                 "Activités marquantes": entry.activite,
+                Témoignage: entry.testimonial,
+
+                // 2. Expérience académique à SJD
                 "Conseil aux nouveaux étudiants": entry.conseil,
                 "Implication en agriculture": entry.agriculture,
                 "Tuteur ou tutoré": entry.tutore,
                 "École fréquentée": entry.ecole,
                 "Centre de formation": entry.centre,
+                "Qualité de l’enseignement": entry.teaching_quality,
+                "Utilité des compétences": entry.skills_usefulness,
+                "Recommander la formation": entry.recommend,
+
+                // 3. Implication dans la formation
                 "Prêt à enseigner": entry.willing_to_teach,
                 "Domaines enseignables": entry.teaching_fields,
+
+                // 4. Propositions de partenariats
                 "Suggestions de partenariat": entry.partnership_suggestions,
                 "Soutien aux partenariats":
                     entry.willing_to_support_partnership,
+
+                // 5. Reconnaissance du diplôme à l’international
                 "Études à l’étranger": entry.abroad,
                 "Problèmes de certificat": entry.certification_issue,
                 "Suggestions de certification": entry.certification_suggestion,
+
+                // 6. Prix & Distinctions – Membre de l’administration
                 "Prix admin": entry.award_admin,
                 "Détails prix admin": entry.admin_award_details,
+
+                // 7. Prix & Distinctions – Anciens étudiants
                 "Prix alumni": entry.award_alumni,
                 "Détails prix alumni": entry.alumni_award_details,
+
+                // 8. Vision UNEEP et formation en alternance (supposée)
+                "Vision UNEEP": entry.vision_uneep,
+                "Travail-études": entry.work_study,
+                "Culture entrepreneuriale": entry.entrepreneurship_culture,
+
+                // Optionnel : champs manquants du formulaire HTML (si existants dans la suite)
+                "Type de prix admin": entry.admin_award_type,
+                "Type de prix alumni": entry.alumni_award_type,
                 "Forces de la formation": entry.strengths,
                 "Axes d’amélioration": entry.improvements,
             };
+            
 
             const date = entry.createdAt || Date.now();
             const fullName = `👤 ${entry.name}`;
