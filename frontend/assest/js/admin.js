@@ -1,9 +1,44 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const API_URL = "https://alumni-backend-wmj4.onrender.com/api/form";
     const loading = document.getElementById("loading");
-    const responsesContainer = document.createElement("div");
-    responsesContainer.id = "responsesContainer";
-    document.getElementById("admin").appendChild(responsesContainer);
+    const admin = document.getElementById("admin");
+
+    const createSectionTable = (title, headers, rows) => {
+        const section = document.createElement("section");
+        section.classList.add("response-section");
+
+        const h2 = document.createElement("h2");
+        h2.textContent = title;
+        section.appendChild(h2);
+
+        const table = document.createElement("table");
+        table.classList.add("response-table");
+
+        const thead = document.createElement("thead");
+        const headerRow = document.createElement("tr");
+        headers.forEach((header) => {
+            const th = document.createElement("th");
+            th.textContent = header;
+            headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        const tbody = document.createElement("tbody");
+        rows.forEach((row) => {
+            const tr = document.createElement("tr");
+            row.forEach((cell) => {
+                const td = document.createElement("td");
+                td.textContent = cell;
+                tr.appendChild(td);
+            });
+            tbody.appendChild(tr);
+        });
+        table.appendChild(tbody);
+
+        section.appendChild(table);
+        return section;
+    };
 
     try {
         const response = await fetch(API_URL);
@@ -16,55 +51,133 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        data.forEach((entry) => {
-            const card = document.createElement("div");
-            card.classList.add("response-card");
+        // Informations générales
+        const infoHeaders = [
+            "Nom",
+            "Email",
+            "Programme",
+            "Domaine",
+            "Année",
+            "Pays",
+            "Emploi",
+            "Entreprise",
+        ];
+        const infoRows = data.map((entry) => [
+            entry.name,
+            entry.email,
+            entry.program,
+            entry.field,
+            entry.promotion_year,
+            entry.residence_country,
+            entry.current_job,
+            entry.current_company,
+        ]);
+        admin.appendChild(
+            createSectionTable(
+                "🎓 Informations générales",
+                infoHeaders,
+                infoRows
+            )
+        );
 
-            card.innerHTML = `
-          <h2>🎓 Informations générales</h2>
-          <p><strong>Nom :</strong> ${entry.name}</p>
-          <p><strong>Email :</strong> ${entry.email}</p>
-          <p><strong>Programme :</strong> ${entry.program}</p>
-          <p><strong>Domaine :</strong> ${entry.field}</p>
-          <p><strong>Année :</strong> ${entry.promotion_year}</p>
-          <p><strong>Pays :</strong> ${entry.residence_country}</p>
-          <p><strong>Emploi actuel :</strong> ${entry.current_job}</p>
-          <p><strong>Entreprise :</strong> ${entry.current_company}</p>
-  
-          <h2>🧠 Évaluation de la formation</h2>
-          <p><strong>Qualité de l’enseignement :</strong> ${entry.teaching_quality}</p>
-          <p><strong>Utilité des compétences :</strong> ${entry.skills_usefulness}</p>
-          <p><strong>Recommander l'établissement :</strong> ${entry.recommend}</p>
-          <p><strong>Témoignage :</strong> ${entry.testimonial}</p>
-  
-          <h2>🎓 Contribution en enseignement</h2>
-          <p><strong>Prêt à enseigner :</strong> ${entry.willing_to_teach}</p>
-          <p><strong>Domaines enseignables :</strong> ${entry.teaching_fields}</p>
-  
-          <h2>🤝 Partenariats</h2>
-          <p><strong>Suggestions de partenariat :</strong> ${entry.partnership_suggestions}</p>
-          <p><strong>Prêt à soutenir :</strong> ${entry.willing_to_support_partnership}</p>
-  
-          <h2>🌍 International & Certification</h2>
-          <p><strong>À l'étranger :</strong> ${entry.abroad}</p>
-          <p><strong>Problèmes avec le certificat :</strong> ${entry.certification_issue}</p>
-          <p><strong>Suggestions pour le certificat :</strong> ${entry.certification_suggestion}</p>
-  
-          <h2>🏆 Distinctions</h2>
-          <p><strong>Prix admin :</strong> ${entry.award_admin}</p>
-          <p><strong>Détails :</strong> ${entry.admin_award_details}</p>
-          <p><strong>Type :</strong> ${entry.admin_award_type}</p>
-          <p><strong>Prix alumni :</strong> ${entry.award_alumni}</p>
-          <p><strong>Détails :</strong> ${entry.alumni_award_details}</p>
-          <p><strong>Type :</strong> ${entry.alumni_award_type}</p>
-  
-          <h2>💪 Forces et améliorations</h2>
-          <p><strong>Forces :</strong> ${entry.strengths}</p>
-          <p><strong>Améliorations :</strong> ${entry.improvements}</p>
-        `;
+        // Évaluation
+        const evalHeaders = [
+            "Enseignement",
+            "Utilité",
+            "Recommander",
+            "Témoignage",
+        ];
+        const evalRows = data.map((entry) => [
+            entry.teaching_quality,
+            entry.skills_usefulness,
+            entry.recommend,
+            entry.testimonial,
+        ]);
+        admin.appendChild(
+            createSectionTable(
+                "🧠 Évaluation de la formation",
+                evalHeaders,
+                evalRows
+            )
+        );
 
-            responsesContainer.appendChild(card);
-        });
+        // Enseignement
+        const teachHeaders = ["Prêt à enseigner", "Domaines enseignables"];
+        const teachRows = data.map((entry) => [
+            entry.willing_to_teach,
+            entry.teaching_fields,
+        ]);
+        admin.appendChild(
+            createSectionTable(
+                "🎓 Contribution en enseignement",
+                teachHeaders,
+                teachRows
+            )
+        );
+
+        // Partenariats
+        const partnerHeaders = ["Suggestions", "Prêt à soutenir"];
+        const partnerRows = data.map((entry) => [
+            entry.partnership_suggestions,
+            entry.willing_to_support_partnership,
+        ]);
+        admin.appendChild(
+            createSectionTable("🤝 Partenariats", partnerHeaders, partnerRows)
+        );
+
+        // International
+        const intlHeaders = [
+            "À l'étranger",
+            "Problèmes de certificat",
+            "Suggestions certificat",
+        ];
+        const intlRows = data.map((entry) => [
+            entry.abroad,
+            entry.certification_issue,
+            entry.certification_suggestion,
+        ]);
+        admin.appendChild(
+            createSectionTable(
+                "🌍 International & Certification",
+                intlHeaders,
+                intlRows
+            )
+        );
+
+        // Distinctions
+        const awardHeaders = [
+            "Prix admin",
+            "Détails admin",
+            "Type admin",
+            "Prix alumni",
+            "Détails alumni",
+            "Type alumni",
+        ];
+        const awardRows = data.map((entry) => [
+            entry.award_admin,
+            entry.admin_award_details,
+            entry.admin_award_type,
+            entry.award_alumni,
+            entry.alumni_award_details,
+            entry.alumni_award_type,
+        ]);
+        admin.appendChild(
+            createSectionTable("🏆 Distinctions", awardHeaders, awardRows)
+        );
+
+        // Forces et améliorations
+        const improveHeaders = ["Forces", "Améliorations"];
+        const improveRows = data.map((entry) => [
+            entry.strengths,
+            entry.improvements,
+        ]);
+        admin.appendChild(
+            createSectionTable(
+                "💪 Forces et améliorations",
+                improveHeaders,
+                improveRows
+            )
+        );
 
         loading.remove();
     } catch (err) {
