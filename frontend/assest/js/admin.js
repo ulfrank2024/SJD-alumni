@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const API_URL = "https://ton-backend.onrender.com/api/form/all";
+    const API_URL = "https://alumni-backend-wmj4.onrender.com/api/form";
     const loading = document.getElementById("loading");
     const responsesContainer = document.createElement("div");
     responsesContainer.id = "responsesContainer";
