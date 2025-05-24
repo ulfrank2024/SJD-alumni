@@ -65,16 +65,16 @@ body {
     background-color: #f1f5f9;
 }
   /* 🧾 Conteneur simplifié pour mobile */
-.mobile-responses {
+  #mobileResponses{
     display: none;
 }
 
 @media screen and (max-width: 600px) {
-    .contenu {
-        display: none; /* Masquer le tableau */
+    #admin {
+        display: none;
     }
 
-    .mobile-responses {
+    #mobileResponses {
         display: block;
     }
 
