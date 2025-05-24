@@ -17,4 +17,8 @@
   .response-card p {
     margin: 0.4em 0;
   }
+  .response-section {
+    overflow-x: auto;
+}
+
   

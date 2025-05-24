@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const loading = document.getElementById("loading");
     const admin = document.getElementById("admin");
 
-    const createSectionTable = (title, headers, rows) => {
+    const createUnifiedTable = (headers, rows) => {
         const section = document.createElement("section");
         section.classList.add("response-section");
 
         const h2 = document.createElement("h2");
-        h2.textContent = title;
+        h2.textContent = "📋 Résumé des réponses des alumni";
         section.appendChild(h2);
 
         const table = document.createElement("table");
@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        // Informations générales
-        const infoHeaders = [
+        // En-têtes unifiés
+        const headers = [
             "Nom",
             "Email",
             "Programme",
@@ -61,8 +61,29 @@ document.addEventListener("DOMContentLoaded", async () => {
             "Pays",
             "Emploi",
             "Entreprise",
+            "Enseignement",
+            "Utilité",
+            "Recommander",
+            "Témoignage",
+            "Prêt à enseigner",
+            "Domaines enseignables",
+            "Suggestions partenariat",
+            "Soutien partenariat",
+            "À l'étranger",
+            "Problèmes certificat",
+            "Suggestions certificat",
+            "Prix admin",
+            "Détails admin",
+            "Type admin",
+            "Prix alumni",
+            "Détails alumni",
+            "Type alumni",
+            "Forces",
+            "Améliorations",
         ];
-        const infoRows = data.map((entry) => [
+
+        // Lignes unifiées
+        const rows = data.map((entry) => [
             entry.name,
             entry.email,
             entry.program,
@@ -71,114 +92,29 @@ document.addEventListener("DOMContentLoaded", async () => {
             entry.residence_country,
             entry.current_job,
             entry.current_company,
-        ]);
-        admin.appendChild(
-            createSectionTable(
-                "🎓 Informations générales",
-                infoHeaders,
-                infoRows
-            )
-        );
-
-        // Évaluation
-        const evalHeaders = [
-            "Enseignement",
-            "Utilité",
-            "Recommander",
-            "Témoignage",
-        ];
-        const evalRows = data.map((entry) => [
             entry.teaching_quality,
             entry.skills_usefulness,
             entry.recommend,
             entry.testimonial,
-        ]);
-        admin.appendChild(
-            createSectionTable(
-                "🧠 Évaluation de la formation",
-                evalHeaders,
-                evalRows
-            )
-        );
-
-        // Enseignement
-        const teachHeaders = ["Prêt à enseigner", "Domaines enseignables"];
-        const teachRows = data.map((entry) => [
             entry.willing_to_teach,
             entry.teaching_fields,
-        ]);
-        admin.appendChild(
-            createSectionTable(
-                "🎓 Contribution en enseignement",
-                teachHeaders,
-                teachRows
-            )
-        );
-
-        // Partenariats
-        const partnerHeaders = ["Suggestions", "Prêt à soutenir"];
-        const partnerRows = data.map((entry) => [
             entry.partnership_suggestions,
             entry.willing_to_support_partnership,
-        ]);
-        admin.appendChild(
-            createSectionTable("🤝 Partenariats", partnerHeaders, partnerRows)
-        );
-
-        // International
-        const intlHeaders = [
-            "À l'étranger",
-            "Problèmes de certificat",
-            "Suggestions certificat",
-        ];
-        const intlRows = data.map((entry) => [
             entry.abroad,
             entry.certification_issue,
             entry.certification_suggestion,
-        ]);
-        admin.appendChild(
-            createSectionTable(
-                "🌍 International & Certification",
-                intlHeaders,
-                intlRows
-            )
-        );
-
-        // Distinctions
-        const awardHeaders = [
-            "Prix admin",
-            "Détails admin",
-            "Type admin",
-            "Prix alumni",
-            "Détails alumni",
-            "Type alumni",
-        ];
-        const awardRows = data.map((entry) => [
             entry.award_admin,
             entry.admin_award_details,
             entry.admin_award_type,
             entry.award_alumni,
             entry.alumni_award_details,
             entry.alumni_award_type,
-        ]);
-        admin.appendChild(
-            createSectionTable("🏆 Distinctions", awardHeaders, awardRows)
-        );
-
-        // Forces et améliorations
-        const improveHeaders = ["Forces", "Améliorations"];
-        const improveRows = data.map((entry) => [
             entry.strengths,
             entry.improvements,
         ]);
-        admin.appendChild(
-            createSectionTable(
-                "💪 Forces et améliorations",
-                improveHeaders,
-                improveRows
-            )
-        );
 
+        // Création d'un tableau unique
+        admin.appendChild(createUnifiedTable(headers, rows));
         loading.remove();
     } catch (err) {
         loading.textContent = "Impossible de charger les données.";
